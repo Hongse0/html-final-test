@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>삼육대 서점</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>        
+    </style>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- 헤더 태그를 사용해 화면 위쪽에 삼육대학교 사진 2개를 슬라이드쇼로 넣었습니다.-->
+	<header>
+        <div class="slideshow">
+            <img class="slide" src="slide1.jpg" alt="Slide 1">
+            <img class="slide" src="slide2.jpg" alt="Slide 2">
+        </div>
+	</header>
+    <!-- nav태그 안에다가 h1태그로 프로젝트 제목을 넣었고 ul테그안 a태그로 
+        새로고침기능,로그인창으로 이동하는 기능, 삼육대 홈페이지로 이동하는 기능을 넣었습니다.-->
+    <nav>
+        <h1><img src="syulogo.png" alt="logo" style="width: 80px; height: 80px;"><span>삼육대학교 서점</span></h1>
+        <ul>
+            <li><a href="mainpage.html">Home</a></li>
+            <li><a>Shop</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="https://www.syu.ac.kr/">Where</a></li>
+        </ul>
+    </nav>
+   
+    <!-- main 태그 안 주요 기능으로는 서점의 책들을 보여주고 장바구니 버튼을 누를수 있게하는 기능을 합니다. -->
+	<main>
+		<section class="products">
+			<h2>베스트 셀러</h2>
+			<div class="product">
+				<img src="product1.jpeg" alt="Product 1" style="width:60px; height: 80px;">
+				<h3>안드로이드 프로그래밍</h3>
+				<p>₩26000</p>
+                <button id="addBtn">장바구니에 담기1</button>
+			</div>
+			<div class="product">
+				<img src="product2.jpeg" alt="Product 2" style="width:60px; height: 80px;">
+				<h3>알고리즘 기초</h3>
+				<p>₩28000</p>
+                <button id="addBtn">장바구니에 담기</button>			
+			</div>
+			<div class="product">
+				<img src="product3.jpeg" alt="Product 3" style="width:60px; height: 80px;">
+				<h3>데이터베이스 기초</h3>
+				<p>₩20000</p>
+                <button id="addBtn">장바구니에 담기</button>
+			</div>
+            <div class="product">
+				<img src="product4.jpeg" alt="Product 4" style="width:60px; height: 80px;">
+				<h3>컴퓨터 구조론</h3>
+				<p>₩22000</p>
+                <button id="addBtn">장바구니에 담기</button>
+			</div>
+            
+		</section>
+	</main>
+    <!-- section안에 있는 장바구니 담기 버튼을 누르면 장바구니div에 책이름이 추가 됩니다. -->
+    <div id="cart">
+        <p>장바구니</p>
+    </div>
+    <br><br><br><br><br><br>
+    <!-- footer 태그를 이용해 페이지 하단을 마무리 했습니다. -->
+	<footer>
+		<div id="outsideBox">
+            <div id="insideBox"><p><span id="box">제공</span><br><br>홍세영</p></div>
+            <div id="insideBox"><p><span id="box">번호</span><br><br>010-9026-3254</p></div>
+            <div id="insideBox"><p><span id="box">소속</span><br><br>삼육대학교</p></div>
+           </div>
+	</footer>
+
+    <!-- 1번 이벤트 자바스크립트를 이용해서 장바구니 추가하기 -->
+	<script>
+        const $cart = document.getElementById('cart');
+        const $addBtns = document.querySelectorAll('.product button');
+
+        // button클릭이 발생할때 h3안에있는 text를 불러와 li에 추가합니다.
+        $addBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e){
+                const newItem = document.createElement('li');
+                newItem.textContent = this.parentNode.querySelector('h3').textContent;
+                $cart.appendChild(newItem);
+            });
+        });
+    </script>
+
+    <!-- 2번 이벤트 header 영역에 배경으로 슬라이드 쇼 추가하기 -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        let intervalId = setInterval(showSlide, 3000);
+
+        // slide 배열을 이용해 인덱스를 변경해 슬라이드 사진을 바꿔줍니다.
+        function showSlide() {
+            slides[currentSlide].style.opacity = '0';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = '1';
+        }
+
+        // 3번 이벤트 마우스가 슬라이드에 올라가면 진행되는 슬라이드가 멈추고
+        const slideshow = document.querySelector('.slideshow');
+        slideshow.addEventListener('mouseover', function() {
+            clearInterval(intervalId);
+        });
+
+        // 마우스가 나가면 다시 슬라이드가 진행되는 이벤트
+        slideshow.addEventListener('mouseout', function() {
+            intervalId = setInterval(showSlide, 3000);
+        });
+
+
+    </script>
+</body>
+</html>

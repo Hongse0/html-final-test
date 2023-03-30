@@ -1,0 +1,165 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+}
+
+header {
+	position: relative;
+	background-color: none;
+	/* opacity: 30%; */
+	height: 100px;
+	color: #fff;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav {
+	/* background-color: rgba(0, 128, 128, 0.5); */	
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	border: 2px solid black;
+}
+
+nav h1{
+	color: black;
+	margin-left: 30px;
+	font-size: 45px;
+}
+
+ul {
+	color: black;
+	 display: flex;
+    justify-content: flex-end;
+    list-style: none;
+	margin-right: 70px;
+}
+
+nav li {
+	margin-left: 20px;
+}
+
+nav a {
+	color: black;
+	text-decoration: none;
+}
+
+nav a:hover{
+	color: aqua;
+	font-size: 40px;
+}
+
+.products {
+	margin: 50px 0;
+	/* background-color: red; */
+}
+
+.product {
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin: 10px;
+	width: calc(33.33% - 20px);
+	display: inline-block;
+	vertical-align: top;
+}
+
+.product img {
+	max-width: 100%;
+}
+.products h2 {
+	margin-left: 30px;
+}
+
+.product h3 {
+	margin: 10px 0;
+}
+
+.product p {
+	font-weight: bold;
+}
+
+.product button{
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-decoration: none;
+}
+.product button:hover{
+	background-color: #555;
+}
+
+footer {
+	clear: left;
+	width:100%;
+	height: 200px;
+	background-color: gray;
+	opacity: 0.5;
+}
+#cart {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	background-color: palegoldenrod;
+}
+
+ #cart p {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+		
+}
+
+#cart ul {
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+#cart li {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.slideshow {
+	/* opacity: 45%; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  }
+  
+  .slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* opacity: 0; */
+	transition: opacity 1s ease-in-out;
+  }
+  
+  .slide.active {
+	opacity: 1;
+  }
+  #outsideBox{
+    width: 1140px;
+    height: 150px;
+    margin: 0 auto;
+}
+#insideBox{
+    float: left;
+    width: 120px;
+    height: 80px;
+    margin: 30px 0 0 20px;      
+}
+#box{
+    font-size: 32px;
+    font-weight: bold;
+}
